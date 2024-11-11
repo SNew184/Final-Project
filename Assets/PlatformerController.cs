@@ -31,8 +31,8 @@ public class PlatformerController : MonoBehaviour
     private float moveInput;
     private float lastGroundedTime;
     private float lastJumpTime;
-    private bool isJumping;
-    private bool isGrounded;
+    public bool isJumping;
+    public bool isGrounded;
 
     private void Start()
     {
@@ -52,6 +52,7 @@ public class PlatformerController : MonoBehaviour
         if (isGrounded)
         {
             lastGroundedTime = coyoteTime;
+            isJumping = false;
         }
         else
         {
