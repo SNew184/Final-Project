@@ -17,7 +17,7 @@ public class CharacterController2D : MonoBehaviour
     private float moveSpeed;
     private bool isRunning;
     private bool facingRight = true;
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,6 +26,12 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
+        // int xPos = player.transform.x; 
+        // int yPos = player.transform.y;
+        // int zPos = player.transform.z;
+        // Debug.Log("X: " + xPos + " Y: " + yPos + " Z: " + zPos);
+        // Debug.Log(player.transform);
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
