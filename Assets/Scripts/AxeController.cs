@@ -22,7 +22,7 @@ public class AxeController : MonoBehaviour
             rotationSpeed *= -1;
         }
         transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
-        Debug.Log(transform.rotation);
-        Debug.Log(transform.eulerAngles.z);
+        // Debug.Log(transform.rotation);
+        // Debug.Log(transform.eulerAngles.z);
     }
 }
