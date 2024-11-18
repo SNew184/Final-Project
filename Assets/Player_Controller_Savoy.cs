@@ -8,8 +8,6 @@ using UnityEngine;
 
 
 // Ensure required components are also added to Game Object
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Input")]
@@ -56,7 +54,6 @@ public class PlayerController : MonoBehaviour
     {
         // get components, stop game if not found
         rb2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         if (!rb2d || !animator)
         {
             Debug.LogError("Rigidbody2D and Animator required");
