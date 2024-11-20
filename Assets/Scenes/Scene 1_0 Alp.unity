@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 302560713}
   - component: {fileID: 302560712}
   - component: {fileID: 302560711}
+  - component: {fileID: 302560715}
   m_Layer: 0
   m_Name: axeDouble
   m_TagString: Untagged
@@ -414,6 +415,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 137}
+--- !u!114 &302560715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302560710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a718dc01de74a129474f45a719780d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!4 &778451950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3067826078855802520, guid: d41cd14fa417a41fbb6e06b5a2937410, type: 3}
