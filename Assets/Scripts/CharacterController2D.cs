@@ -5,7 +5,7 @@ public class CharacterController2D : MonoBehaviour
     [Header("Movement Parameters")]
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 8f;
-    [SerializeField] private float jumpForce = 12f;
+    [SerializeField] private float jumpForce = 8f;
 
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
