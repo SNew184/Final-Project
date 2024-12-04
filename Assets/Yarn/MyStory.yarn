@@ -1,24 +1,60 @@
-﻿title: Start
-tags:
-position: 123,-196
+﻿
+title: FirstEncounter
 ---
-Narrator: Oh, hello!
-    -> Hi, where am I?
-        Narrator: You're in Unity!
-            -> Oh.
-            <<jump Oh>>
-            -> How did I get here?
-            <<jump Unity>>
-===
 
-title: Oh
-position: 164,114
+title: Start
 ---
-Narrator: Yeah, fun, right?
-===
+-> Meet the mysterious figure
+-> Explore the surroundings
+    You take a moment to look around, but something feels... off.
+->> MeetBoss
 
-title: Unity
-position: -53,52
 ---
-Narrator: Someone read the Beginner's Guide!
-===
+
+title: MeetBoss
+---
+<<set playerHasMetBoss = true>>
+
+Player:
+    Where... am I? What is this place?
+
+Boss:
+    Welcome, [PLAYER_NAME]. I've been waiting for you.
+
+Player:
+    (confused) Wait, who are you? And how do you know my name?
+
+Boss:
+    (smirks) Who I am is not important. What matters is why you are here.
+
+-> "What do you want from me?"
+    Player:
+        What do you want from me?
+    Boss:
+        (leaning closer) Everything.
+-> "I'm not afraid of you!"
+    Player:
+        I'm not afraid of you!
+    Boss:
+        (laughs) Oh, but you should be.
+
+---
+
+Boss:
+    We will meet again, [PLAYER_NAME]. And when we do... you'll wish you had never come here.
+
+Player:
+    Wait! Who are you?!
+
+-> Continue
+->> EndConversation
+---
+
+title: EndConversation
+---
+<<set PlayerHasTalkedToBoss = true>>
+Narrator:
+    The mysterious figure disappears into the shadows. You are left alone with more questions than answers.
+
+-> Back to Start
+->> Start
