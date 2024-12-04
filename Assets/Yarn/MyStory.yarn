@@ -1,17 +1,23 @@
 ﻿
 title: FirstEncounter
+position: -37,-170
 ---
+position: -88,-140
+===
+
 
 title: Start
+position: 209,44
 ---
 -> Meet the mysterious figure
 -> Explore the surroundings
     You take a moment to look around, but something feels... off.
 ->> MeetBoss
 
----
+===
 
 title: MeetBoss
+position: -103,-26
 ---
 <<set playerHasMetBoss = true>>
 
@@ -38,7 +44,6 @@ Boss:
     Boss:
         (laughs) Oh, but you should be.
 
----
 
 Boss:
     We will meet again, [PLAYER_NAME]. And when we do... you'll wish you had never come here.
@@ -48,9 +53,12 @@ Player:
 
 -> Continue
 ->> EndConversation
----
+position: -4,24
+position: -69,68
+===
 
 title: EndConversation
+position: -125,120
 ---
 <<set PlayerHasTalkedToBoss = true>>
 Narrator:
@@ -58,3 +66,5 @@ Narrator:
 
 -> Back to Start
 ->> Start
+===
+
