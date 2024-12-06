@@ -1,25 +1,33 @@
-﻿
+﻿title: Start
+position: 120,-216
+---
+
+<<declare $playerHasMetBoss = false>>
+<<declare $playerHasTalkedToBoss = false>>
+<<Test YarnFunctions>>
+
+-> Meet the mysterious figure
+-> Explore the surroundings
+    You take a moment to look around, but something feels... off.
+-> MeetBoss
+    <<jump MeetBoss>>
+
+===
+
 title: FirstEncounter
-position: -37,-170
+position: 12,-50
 ---
 position: -88,-140
 ===
 
 
-title: Start
-position: 209,44
----
--> Meet the mysterious figure
--> Explore the surroundings
-    You take a moment to look around, but something feels... off.
-->> MeetBoss
 
-===
 
 title: MeetBoss
-position: -103,-26
+position: 19,104
 ---
-<<set playerHasMetBoss = true>>
+<<Test YarnFunctions>>
+<<set $playerHasMetBoss = true>>
 
 Player:
     Where... am I? What is this place?
@@ -47,24 +55,24 @@ Boss:
 
 Boss:
     We will meet again, [PLAYER_NAME]. And when we do... you'll wish you had never come here.
-
+·
 Player:
     Wait! Who are you?!
 
 -> Continue
-->> EndConversation
+-> EndConversation
 position: -4,24
 position: -69,68
 ===
 
 title: EndConversation
-position: -125,120
+position: 239,102
 ---
-<<set PlayerHasTalkedToBoss = true>>
+<<set $playerHasTalkedToBoss = true>>
 Narrator:
     The mysterious figure disappears into the shadows. You are left alone with more questions than answers.
 
 -> Back to Start
-->> Start
+-> Start
 ===
 
