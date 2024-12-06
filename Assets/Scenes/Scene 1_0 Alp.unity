@@ -673,6 +673,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
+--- !u!4 &1459359573 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 519955090349020909, guid: 240337db56dcf4b6596bb00f665b3d3b, type: 3}
+  m_PrefabInstance: {fileID: 1927433359}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1562812431
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +887,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1050191929352262115, guid: 240337db56dcf4b6596bb00f665b3d3b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.35966682
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050191929352262115, guid: 240337db56dcf4b6596bb00f665b3d3b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.52413774
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050191929352262115, guid: 240337db56dcf4b6596bb00f665b3d3b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.017542839
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050191929352262115, guid: 240337db56dcf4b6596bb00f665b3d3b, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.12389958
+      objectReference: {fileID: 0}
     - target: {fileID: 2807227483926988354, guid: 240337db56dcf4b6596bb00f665b3d3b, type: 3}
       propertyPath: m_Name
       value: Player-Murtaza
@@ -930,6 +951,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5950368710297970246, guid: 240337db56dcf4b6596bb00f665b3d3b, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1459359573}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
