@@ -50,6 +50,37 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded; // is the player on the ground?
 
 
+
+    private Vector3 startPosition;
+
+    private void Start()
+    {
+        startPosition = transform.position;
+    }
+
+    public void Die()
+    {
+        transform.position = startPosition;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            float yDiff = transform.position.y - collision.transform.position.y;
+            if (yDiff > 0.5f)
+            {
+                collision.gameObject.GetComponent<BossController>().TakeDamage();
+                rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+            }
+            else
+            {
+                Die();
+            }
+        }
+    }
+
+
     private void Awake()
     {
         // get components, stop game if not found

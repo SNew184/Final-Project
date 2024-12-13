@@ -3,20 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Boss
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - KCC
+  - FirstPerson
+  - ThirdPerson
+  - Agent
+  - Target
+  - IgnoreCollision
   - 
   - 
   - 
@@ -40,10 +41,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 2978454901
-    locked: 0
-  - name: Foreground
-    uniqueID: 3525051795
     locked: 0
