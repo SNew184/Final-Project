@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 public class BossController : MonoBehaviour
 {
     [Header("Boss Stats")]
-    public int maxHealth = 5;
-    public float shootInterval = 2f;
-    public float projectileSpeed = 8f;
+    public int maxHealth = 3;
+    public float shootInterval = 4f;
+    public float projectileSpeed = 6f;
 
     [Header("References")]
     [SerializeField] private GameObject projectilePrefab; // Added SerializeField
@@ -51,12 +51,28 @@ public class BossController : MonoBehaviour
         }
 
         shootTimer += Time.deltaTime;
+
+        FacePlayer();
         
         if (shootTimer >= shootInterval)
         {
             ShootAtPlayer();
             shootTimer = 0f;
         }
+    }
+
+
+    public void FacePlayer()
+    {
+        if (player == null) return;
+        
+        // Flip based on player position
+        float direction = player.position.x - transform.position.x;
+        transform.localScale = new Vector3(
+            Mathf.Sign(direction),
+            transform.localScale.y,
+            transform.localScale.z
+        );
     }
 
     private void ShootAtPlayer()

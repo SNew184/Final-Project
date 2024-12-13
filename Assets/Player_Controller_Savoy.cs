@@ -53,32 +53,32 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 startPosition;
 
-    private void Start()
-    {
-        startPosition = transform.position;
-    }
+private void Start()
+{
+    startPosition = transform.position;
+}
 
-    public void Die()
-    {
-        transform.position = startPosition;
-    }
+public void Die()
+{
+    transform.position = startPosition;
+}
 
-    private void OnCollisionEnter2D(Collision2D collision)
+private void OnCollisionEnter2D(Collision2D collision)
+{
+    if (collision.gameObject.CompareTag("Boss"))
     {
-        if (collision.gameObject.CompareTag("Boss"))
+        float yDiff = transform.position.y - collision.transform.position.y;
+        if (yDiff > 0.5f)
         {
-            float yDiff = transform.position.y - collision.transform.position.y;
-            if (yDiff > 0.5f)
-            {
-                collision.gameObject.GetComponent<BossController>().TakeDamage();
-                rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
-            }
-            else
-            {
-                Die();
-            }
+            collision.gameObject.GetComponent<BossController>().TakeDamage();
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+        }
+        else
+        {
+            Die();
         }
     }
+}
 
 
     private void Awake()
