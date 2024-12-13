@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
-    public string nextLevelName = "Level2";
+    public string nextLevelName = "Level2 Murtaza";
     
     [Header("Animation")]
     [SerializeField] private Animator animator;
