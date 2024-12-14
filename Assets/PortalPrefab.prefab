@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f6eab39a84d49e98ccccee736a4141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelName: Level2
+  nextLevelName: Level2 Murtaza
   animator: {fileID: 0}
 --- !u!95 &-6302961279305633229
 Animator:
