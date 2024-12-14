@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// Basic 2D platformer character controller
 /// 2022 Owen Mundy
@@ -25,6 +26,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer; // A mask determining what is ground to the character
     [SerializeField] private Transform ceilingCheck; // A position marking where to check for ceilings
     [SerializeField] private Transform groundCheck; // A position marking where to check if the player is isGrounded.
+
+
+    [Header("Shooting")]
+    public bool canShoot = false;  // Will be set to true in Level 2
+    public float shootCooldown = 0.5f;
+    public GameObject projectilePrefab;
+    public float projectileSpeed = 8f;
+    public Transform shootPoint;
+
+    private float shootTimer;
+    private bool isFacingRight = true;
+
 
     private Vector3 velocity = Vector3.zero;
     public float runSpeed = 30f;
@@ -56,6 +69,8 @@ public class PlayerController : MonoBehaviour
 private void Start()
 {
     startPosition = transform.position;
+    // Enable shooting if in Level 2
+    canShoot = SceneManager.GetActiveScene().name == "Level2 Murtaza";
 }
 
 public void Die()
@@ -116,6 +131,32 @@ private void OnCollisionEnter2D(Collision2D collision)
 
         // whether currently on ground (collision detection)
         CheckIfGrounded();
+
+        // Handle shooting
+        if (canShoot)
+        {
+            shootTimer -= Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.X) && shootTimer <= 0)
+            {
+                Shoot();
+                shootTimer = shootCooldown;
+            }
+        }
+    }
+
+
+    private void Shoot()
+    {
+        if (projectilePrefab == null || shootPoint == null) return;
+
+        GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        
+        if (rb != null)
+        {
+            float direction = transform.localScale.x;
+            rb.velocity = new Vector2(direction * projectileSpeed, 0);
+        }
     }
 
     public void Move(float move)
@@ -179,6 +220,9 @@ private void OnCollisionEnter2D(Collision2D collision)
         // Switch the way the player is labelled as facing.
         facingRight = !facingRight;
         // Multiply the player's x local scale by -1.
+
+        isFacingRight = facingRight;
+
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
