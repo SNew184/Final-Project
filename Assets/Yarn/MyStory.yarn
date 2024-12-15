@@ -1,0 +1,165 @@
+﻿title: Start
+position: 120,-216
+---
+
+<<declare $playerHasMetBoss = false>>
+<<declare $playerHasTalkedToBoss = false>>
+<<Test YarnFunctions>>
+
+-> Meet the mysterious figure
+-> Explore the surroundings
+    You take a moment to look around, but something feels... off.
+-> MeetBoss
+    <<jump MeetBoss>>
+
+<<if $playerHasMetBoss and $playerHasTalkedToBoss>>
+<<Test YarnFunctions>>
+<<jump AfterEncounter>>
+<<endif>>
+===
+
+title: FirstEncounter
+position: 12,-50
+---
+position: -88,-140
+===
+
+
+
+
+title: MeetBoss
+position: 19,104
+---
+<<Test YarnFunctions>>
+<<set $playerHasMetBoss = true>>
+
+Player:
+    Where... am I? What is this place?
+
+Boss:
+    Welcome, [PLAYER_NAME]. I've been waiting for you.
+
+Player:
+    (confused) Wait, who are you? And how do you know my name?
+
+Boss:
+    (smirks) Who I am is not important. What matters is why you are here.
+
+-> "What do you want from me?"
+    Player:
+        What do you want from me?
+    Boss:
+        (leaning closer) Everything.
+-> "I'm not afraid of you!"
+    Player:
+        I'm not afraid of you!
+    Boss:
+        (laughs) Oh, but you should be.
+
+
+Boss:
+    We will meet again, [PLAYER_NAME]. And when we do... you'll wish you had never come here.
+·
+Player:
+    Wait! Who are you?!
+
+
+-> EndConversation
+<<jump EndConversation>>
+position: -4,24
+position: -69,68
+===
+
+title: EndConversation
+position: 239,102
+---
+<<set $playerHasTalkedToBoss = true>>
+Narrator:
+    The mysterious figure disappears into the shadows. You are left alone with more questions than answers.
+
+-> Back to Start
+-> Start
+===
+
+title: AfterEncounter
+position: 350,150
+---
+<<Test YarnFunctions>>
+<<if $playerHasMetBoss and $playerHasTalkedToBoss>>
+
+Narrator:
+    The shadows shift, and the air grows colder. You feel a presence return.
+
+Boss:
+    (voice echoing) Did you think you could escape, [PLAYER_NAME]?
+
+Player:
+    (startled) I thought you were gone! What do you want now?
+
+Boss:
+    (calmly) You haven't answered my question yet. Why are you here?
+
+-> "I don't know why I'm here!"
+    Player:
+        I don't know why I'm here!
+    Boss:
+        (narrowing eyes) Ignorance won't save you. It never does.
+-> "I'm here because of you."
+    Player:
+        I'm here because of you.
+    Boss:
+        (chuckling) A clever response. But that's only half the truth.
+-> "I want answers."
+    Player:
+        I want answers.
+    Boss:
+        Answers? (pauses) You're not ready for them. Not yet.
+
+Boss:
+    (leans forward) Time will tell if you're worthy of the truth. For now, consider this a test.
+
+Player:
+    A test? What kind of test?
+
+Boss:
+    (smirks) The kind where failure isn't an option.
+
+Narrator:
+    The figure extends a hand, and the space around you begins to distort. 
+
+-> "What are you doing?!"
+    Player:
+        What are you doing?!
+    Boss:
+        Preparing you.
+-> "I won't play your games!"
+    Player:
+        I won't play your games!
+    Boss:
+        (laughs) You already are.
+
+Narrator:
+    Before you can react, the world around you dissolves into darkness. A faint voice lingers in your mind.
+
+Boss:
+    Remember this, [PLAYER_NAME]: Everything has a price.
+
+<<jump NextChallenge>>
+<<endif>>
+===
+
+title: NextChallenge
+position: 600,180
+---
+Narrator:
+    When you regain consciousness, you find yourself in a strange new environment. The ground beneath you hums with energy, and in the distance, you hear the faint sound of footsteps.
+
+Player:
+    Where am I now? Is this another one of their tricks?
+
+Narrator:
+    Whatever this place is, it feels alive... and it's watching you.
+
+-> Explore the area
+-> Wait and see what happens
+===
