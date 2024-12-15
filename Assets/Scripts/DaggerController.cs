@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DaggerController : MonoBehaviour
 {
-    float horizontalMovement = 5f; // Adjust this value as needed
+    float horizontalMovement = 10f; // Adjust this value as needed
 
     // Start is called before the first frame update
     void Start()

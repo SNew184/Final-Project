@@ -21,6 +21,7 @@ public class Damage : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("Player hit!");
             collision.gameObject.transform.position = spawnPoint.position;
         }
     }
